@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+# Welcome to Antoine YANG's Blog
 
-You can use the [editor on GitHub](https://github.com/AntoineYANG/AntoineYANG.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+After noticing that it's been more than one year since I joined _**GitHub**_,
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I decided to run a blog on _**GitHub Pages**_.
 
-### Markdown
+As a newbie of front-end,
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I want to mark and share some ideas when I learn from my study and programming.
 
-```markdown
-Syntax highlighted code block
+It'll be wonderful if you get to know me through this blog.
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## Technology Stack
 
-**Bold** and _Italic_ and `Code` text
+- **React**
+- **typescript**
 
-[Link](url) and ![Image](src)
-```
+These two above are my favorite techs at this time.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Just as what I did in most of the recently working repositories,
 
-### Jekyll Themes
+I will use **React + typescript** to develop my own blog,
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AntoineYANG/AntoineYANG.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Of course, with **GitHub Pages**.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+## Language
+
+I will try my best to write my articles in _English_,
+
+However I am not good at that,
+
+Thus I believe sometimes I will use my mother tongue - that is to say, _Chinese_,
+
+If it does make some inconvenience,
+
+I will consider translating them then.
+
+By the way,
+
+I may also use _Japanese_ because I sincerely like it and I am now learning it.
+
+
+
+
+
+**Thanks**
