@@ -1,6 +1,5 @@
 body {
   text-align: center;
-  background-color: #f8f5f1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,6 +7,21 @@ body {
   justify-content: center;
   font-size: calc(8px + 3vmin);
   color: #20242A;
+}
+
+a {
+  color: rgb(86,156,214);
+  text-decoration: none !important;
+}
+
+a:visited {
+  color: rgb(86,156,214);
+}
+
+.inactive {
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none !important;
 }
 
 #root {
@@ -31,8 +45,18 @@ div.wheel:hover {
 div.container {
   padding: 6px;
   text-align: center;
-  font-size: calc(4px + 2.2vmin);
-  border: 2px solid rgb(255,180,23);
+  font-size: calc(12px + 0.6vmin);
+  border: 1.2px solid rgb(32,33,36);
+}
+
+div.container.info {
+  border: 1.2px solid rgb(255,180,23);
+  padding: 16px 8px;
+}
+
+div.container.text {
+  border: 1.2px solid rgb(32,33,36);
+  padding: 16px 8px;
 }
 
 .MenuItem {
@@ -59,4 +83,10 @@ div.container {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+}
+
+.selectable {
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
 }

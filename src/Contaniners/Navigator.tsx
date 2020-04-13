@@ -2,11 +2,11 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 16:47:52 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-13 19:10:30
+ * @Last Modified time: 2020-04-13 20:58:25
  */
 
 import React, { Component } from "react";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link, HashRouter } from "react-router-dom";
 
 
 export type MenuItem = {
@@ -44,22 +44,27 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                 textAlign: "left",
                 ...this.props.style
             }} >
-                <label
-                style={{
-                    display: "inline-block",
-                    textAlign: "center",
-                    fontStyle: "italic",
-                    width: "44px",
-                    margin: "-6px 2em -6px 0",
-                    fontSize: "22px"
-                }} >
-                    You!
-                </label>
+                <HashRouter>
+                    <Link to="/" >
+                        <label className="inactive"
+                        style={{
+                            display: "inline-block",
+                            textAlign: "center",
+                            fontStyle: "italic",
+                            width: "88px",
+                            margin: "-6px 1.2em -6px 0",
+                            fontSize: "22px",
+                            letterSpacing: "-0.06em"
+                        }} >
+                            Shiokaze
+                        </label>
+                    </Link>
+                </HashRouter>
                 <nav
                 style={{
                     display: "inline-block"
                 }} >
-                    <BrowserRouter>
+                    <HashRouter>
                         {
                             (new Array<null>(
                                 ...this.props.items.map(() => null),
@@ -74,7 +79,7 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                                 }
                             })
                         }
-                    </BrowserRouter>
+                    </HashRouter>
                 </nav>
             </div>
         );
@@ -83,7 +88,7 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
     private parseJSX(item: MenuItem): JSX.Element {
         return (
             <Link to={ item.url } key={ item.text } >
-                <label className="MenuItem" >
+                <label className="MenuItem inactive" >
                     { item.text }
                 </label>
             </Link>
