@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 16:47:52 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-13 20:58:25
+ * @Last Modified time: 2020-04-14 13:06:45
  */
 
 import React, { Component } from "react";
@@ -39,8 +39,9 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                 color: "white",
                 fontSize: "16px",
                 border: "none",
-                padding: "18px 20px 14px",
-                minHeight: "1em",
+                display: "flex",
+                padding: "10px 16px",
+                width: "calc(100% - 32px)",
                 textAlign: "left",
                 ...this.props.style
             }} >
@@ -52,7 +53,7 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                             textAlign: "center",
                             fontStyle: "italic",
                             width: "88px",
-                            margin: "-6px 1.2em -6px 0",
+                            margin: "5px 1vmin 5px 1vmin",
                             fontSize: "22px",
                             letterSpacing: "-0.06em"
                         }} >
@@ -62,21 +63,14 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                 </HashRouter>
                 <nav
                 style={{
-                    display: "inline-block"
+                    margin: "0 2.4vmin",
+                    padding: "5.9px 0",
+                    display: "flex"
                 }} >
                     <HashRouter>
                         {
-                            (new Array<null>(
-                                ...this.props.items.map(() => null),
-                                ...this.props.items.map(() => null)
-                            )).slice(0, this.props.items.length * 2 - 1).map((_: null, i: number) => {
-                                if (i % 2 === 1) {
-                                    return (
-                                        <label className="splitor" key={ "splitor_" + i } >|</label>
-                                    );
-                                } else {
-                                    return this.parseJSX(this.props.items[Math.floor(i / 2)]);
-                                }
+                            this.props.items.map((item: MenuItem, i: number) => {
+                                return this.parseJSX(item);
                             })
                         }
                     </HashRouter>

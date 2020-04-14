@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 20:59:01 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-13 21:36:52
+ * @Last Modified time: 2020-04-14 13:05:07
  */
 
 import React, { Component } from 'react';
@@ -14,12 +14,8 @@ export class ContactMe extends Component<{}, {}, {}> {
   public render(): JSX.Element {
     return (
         <Container mode="text" >
-            <div style={{
-                fontSize: "22px"
-            }} >
-                <hr style={{
-                    margin: "90px 10vh"
-                }} />
+            <div>
+                <hr className="head" />
                 <p>
                     Grateful to our accquitance! 
                 </p>

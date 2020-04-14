@@ -47,6 +47,7 @@ div.container {
   text-align: center;
   font-size: calc(12px + 0.6vmin);
   border: 1.2px solid rgb(32,33,36);
+  background: rgba(252, 251, 249, 0.9);
 }
 
 div.container.info {
@@ -59,20 +60,24 @@ div.container.text {
   padding: 16px 8px;
 }
 
+div.box {
+  margin-bottom: 6vmin;
+  box-shadow: calc(3px + 0.3vh) calc(2px + 0.2vh) calc(3px + 0.3vh) calc(0.4px + 0.1vh) #1A1B1D60;
+}
+
 .MenuItem {
-  margin: 4px 0;
-  padding: 8px 0.5em;
-  background-color: #20242A;
+  margin: 4px 0.5vmin;
+  padding: 0 0.5em;
+  text-align: center;
+  display: inline-block;
 }
 
-.MenuItem:hover {
+nav a {
+  background-color: rgb(32, 34, 38);
+}
+
+nav a:hover {
   background-color: rgb(59, 61, 66);
-}
-
-.splitor {
-  margin: 4px 0;
-  padding: 8px 0.5em;
-  margin: 0px 0.4em;
 }
 
 .monospaced {
@@ -89,4 +94,8 @@ div.container.text {
   user-select: text;
   -moz-user-select: text;
   -webkit-user-select: text;
+}
+
+hr.head {
+  margin: 5vmin 0 4vmin;
 }
