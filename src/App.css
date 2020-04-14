@@ -99,3 +99,18 @@ nav a:hover {
 hr.head {
   margin: 5vmin 0 4vmin;
 }
+
+#NewText {
+  width: 8vmin;
+  height: 8vmin;
+  background-color: rgb(247, 244, 237);
+  border-radius: 2vmin;
+  overflow: hidden;
+  z-index: 1000;
+  position: fixed;
+  right: 4vmin;
+  bottom: 12vmin;
+  padding: 0.2vmin;
+  text-align: center;
+  border: 1px solid rgb(255,180,23);
+}

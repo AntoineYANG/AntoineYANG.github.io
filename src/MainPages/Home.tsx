@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 18:08:15 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 13:15:02
+ * @Last Modified time: 2020-04-14 18:28:08
  */
 
 import React, { Component } from 'react';
@@ -21,6 +21,35 @@ export class Home extends Component<{}, {}, {}> {
           }} >
             Hello! This is Antoine YANG's blog.
           </header>
+        </Container>
+        <Container mode="info" >
+          <hr className="head" />
+          <header style={{
+            fontWeight: "bold"
+          }} >
+            UPDATE!
+          </header>
+          <p>
+            The button designed for starting writing a new article is loaded.
+            You can find it at the bottom-right corner - a cross with the color of seawater.
+            So if you <i>want to write an article</i>,
+            stick your mouse or finger on it.
+            Then you will...
+          </p>
+          <br />
+          <br />
+          <br />
+          <p>
+            Get wet.
+          </p>
+          <br />
+          <br />
+          <p>
+            Enjoy it.
+          </p>
+          <p>
+            April 14th, 2020
+          </p>
         </Container>
         <Container mode="info" >
           <hr className="head" />

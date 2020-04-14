@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 16:36:49 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 13:00:09
+ * @Last Modified time: 2020-04-14 17:08:45
  */
 
 import $ from "jquery";
@@ -11,6 +11,7 @@ export type ElementVisibility = number;
 
 interface ProxyInterface {
     isElementVisible: (e: JQuery<HTMLElement>) => ElementVisibility;
+    callPanel: (a: boolean) => void;
 };
 
 export const Sys: ProxyInterface = {
@@ -33,5 +34,6 @@ export const Sys: ProxyInterface = {
         );
 
         return covered / Math.min(pageHeight * 0.8, elementHeight);
-    }
+    },
+    callPanel: () => {}
 };

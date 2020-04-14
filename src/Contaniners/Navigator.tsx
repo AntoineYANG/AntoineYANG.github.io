@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 16:47:52 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 13:06:45
+ * @Last Modified time: 2020-04-14 18:29:23
  */
 
 import React, { Component } from "react";
@@ -43,6 +43,7 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                 padding: "10px 16px",
                 width: "calc(100% - 32px)",
                 textAlign: "left",
+                overflowX: "hidden",
                 ...this.props.style
             }} >
                 <HashRouter>
@@ -65,7 +66,8 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                 style={{
                     margin: "0 2.4vmin",
                     padding: "5.9px 0",
-                    display: "flex"
+                    display: "flex",
+                    overflowX: "hidden"
                 }} >
                     <HashRouter>
                         {

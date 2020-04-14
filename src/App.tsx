@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 15:29:03 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 13:15:26
+ * @Last Modified time: 2020-04-14 16:29:02
  */
 import React, { Component } from 'react';
 import $ from "jquery";
@@ -13,6 +13,8 @@ import { Home } from "./MainPages/Home";
 import { BadUrl } from "./MainPages/BadUrl";  
 import { ContactMe } from './MainPages/ContactMe';
 import { ElementVisibility, Sys } from './Proxy';
+import { NewText } from "./Toolbox/NewText";
+import { Panel } from "./Contaniners/Panel";
 
 
 class App extends Component<{}, {}, {}> {
@@ -45,6 +47,8 @@ class App extends Component<{}, {}, {}> {
             </Switch>
           </HashRouter>
         </div>
+        <NewText />
+        <Panel mode="rain" />
       </>
     );
   }
