@@ -170,6 +170,7 @@ span.views {
 .doc {
   font-size: 80%;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  word-break: break-all;
 }
 
 .doc code {

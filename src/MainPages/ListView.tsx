@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 18:08:15 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-15 22:33:00
+ * @Last Modified time: 2020-04-15 23:20:08
  */
 
 import React, { Component } from 'react';
@@ -150,7 +150,7 @@ export class ListView extends Component<ListViewProps, ListViewState, {}> {
     protected requestForArticles(): void {
         const p: Promise<
             AxiosResponse<Array<Article>>
-        > = axios.get(`http://192.168.137.1:2020/na?page=${
+        > = axios.get(`https://192.168.137.1:20204/na?page=${
             this.page
         }&sortBy=${
             this.sortBy
