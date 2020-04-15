@@ -2,10 +2,11 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 16:47:52 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 18:29:23
+ * @Last Modified time: 2020-04-15 15:58:15
  */
 
 import React, { Component } from "react";
+import $ from "jquery";
 import { Link, HashRouter } from "react-router-dom";
 
 
@@ -33,13 +34,13 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
 
     public render(): JSX.Element {
         return (
-            <div className="container monospaced unselectable"
+            <div className="container monospaced unselectable" id="navi"
             style={{
                 background: "#20242A",
                 color: "white",
                 fontSize: "16px",
                 border: "none",
-                display: "flex",
+                display: $(window).width()! >= $(window).height()! ? "flex" : "block",
                 padding: "10px 16px",
                 width: "calc(100% - 32px)",
                 textAlign: "left",
@@ -62,9 +63,11 @@ export class Navigator extends Component<NavigatorProps, NavigatorState, undefin
                         </label>
                     </Link>
                 </HashRouter>
-                <nav
+                <nav id="navi_nav"
                 style={{
-                    margin: "0 2.4vmin",
+                    margin: `0 ${
+                        $(window).width()! >= $(window).height()! ? "2.4vmin" : "0"
+                    }`,
                     padding: "5.9px 0",
                     display: "flex",
                     overflowX: "hidden"

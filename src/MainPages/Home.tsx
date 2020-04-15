@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 18:08:15 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 18:28:08
+ * @Last Modified time: 2020-04-15 21:36:38
  */
 
 import React, { Component } from 'react';
@@ -47,9 +47,6 @@ export class Home extends Component<{}, {}, {}> {
           <p>
             Enjoy it.
           </p>
-          <p>
-            April 14th, 2020
-          </p>
         </Container>
         <Container mode="info" >
           <hr className="head" />
@@ -77,10 +74,6 @@ export class Home extends Component<{}, {}, {}> {
           </p>
           <p>
             See you next time, <b>Thanks!</b>
-          </p>
-          <br />
-          <p>
-            April 14th, 2020
           </p>
         </Container>
         <Container mode="text" >

@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-14 16:23:41 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 18:42:02
+ * @Last Modified time: 2020-04-15 16:00:26
  */
 
 import React, { Component, createRef } from "react";
@@ -77,10 +77,10 @@ export class Panel extends Component<PanelProps, PanelState> {
                 background: this.props.mode === "rain"
                     ? "linear-gradient("
                         + "180deg,"
-                        + "rgba(120,124,127,0.5) 0%,"
-                        + "rgba(120,124,127,0.3) 10%,"
-                        + "rgba(183,184,187,0.5) 85%,"
-                        + "rgba(183,184,187,0.7) 100%)"
+                        + "rgba(120,124,127,0.6) 0%,"
+                        + "rgba(120,124,127,0.4) 10%,"
+                        + "rgba(183,184,187,0.6) 85%,"
+                        + "rgba(183,184,187,0.8) 100%)"
                     : "rgba(74,111,152,0.5)",
                 pointerEvents: "none",
                 opacity: 0

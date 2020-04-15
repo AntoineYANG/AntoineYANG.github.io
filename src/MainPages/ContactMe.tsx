@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 20:59:01 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 13:05:07
+ * @Last Modified time: 2020-04-15 21:54:41
  */
 
 import React, { Component } from 'react';
@@ -27,6 +27,13 @@ export class ContactMe extends Component<{}, {}, {}> {
                 </p>
                 <p>
                     <a href="https://github.com/AntoineYANG" >Click here</a> to see my GitHub page.
+                </p>
+                <p>
+                    And this (
+                    <a href="https://github.com/AntoineYANG/AntoineYANG.github.io">
+                        https://github.com/AntoineYANG/AntoineYANG.github.io
+                    </a>
+                    ) is the repo of this website.
                 </p>
                 <p>
                     You can also send e-mails to&nbsp;

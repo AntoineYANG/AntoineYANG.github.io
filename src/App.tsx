@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 15:29:03 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-14 16:29:02
+ * @Last Modified time: 2020-04-15 22:33:44
  */
 import React, { Component } from 'react';
 import $ from "jquery";
@@ -10,7 +10,8 @@ import { Navigator } from "./Contaniners/Navigator";
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import './App.css';
 import { Home } from "./MainPages/Home";
-import { BadUrl } from "./MainPages/BadUrl";  
+import { BadUrl } from "./MainPages/BadUrl";
+import { MostViewedList, RecentList } from "./MainPages/ListView";
 import { ContactMe } from './MainPages/ContactMe';
 import { ElementVisibility, Sys } from './Proxy';
 import { NewText } from "./Toolbox/NewText";
@@ -42,6 +43,8 @@ class App extends Component<{}, {}, {}> {
           <HashRouter>
             <Switch>
               <Route path="/" exact component={ Home } />
+              <Route path="/recent" exact component={ RecentList } />
+              <Route path="/most_viewed" exact component={ MostViewedList } />
               <Route path="/contact_me" exact component={ ContactMe } />
               <Route path="/**" component={ BadUrl } />
             </Switch>
@@ -60,12 +63,26 @@ class App extends Component<{}, {}, {}> {
   }
 
   private updateContainers(): void {
+    // 若横屏，导航栏换行
+    $("#navi").css(
+      "display", $(window).width()! >= $(window).height()! ? "flex" : "block"
+    );
+    $("#navi_nav").css(
+      "margin", `0 ${
+        $(window).width()! >= $(window).height()! ? "2.4vmin" : "0"
+    }`);
+    $(".MenuItem").css(
+      "font-size", $(window).width()! >= $(window).height()! ? "unset" : "14.5px"
+    ).css(
+      "letter-spacing", $(window).width()! >= $(window).height()! ? "unset" : "-0.5px"
+    );
+
     const containers: JQuery<HTMLDivElement> = $("div.box");
 
     containers.each((_: number, e: HTMLDivElement) => {
       const state: ElementVisibility = Sys.isElementVisible($(e));
 
-      $(e).css("background", `rgba(252, 251, 249, ${ 0.1 + state * 0.7 })`);
+      $(e).css("background", `rgba(252, 251, 249, ${ 0.2 + state * 0.7 })`);
     })
   }
 }
