@@ -185,3 +185,14 @@ span.views {
 pre.tab {
   display: inline;
 }
+
+blockquote {
+  padding: 0.4em 1em;
+  border: 1px solid #96acbd60;
+  border-left: 6px solid #96acbd;
+  margin: 1em 0 1em;
+}
+
+code {
+  background-color: #cdcdcda0;
+}

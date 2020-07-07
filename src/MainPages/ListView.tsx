@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 18:08:15 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-15 23:20:08
+ * @Last Modified time: 2020-04-16 00:07:57
  */
 
 import React, { Component } from 'react';
@@ -150,7 +150,7 @@ export class ListView extends Component<ListViewProps, ListViewState, {}> {
     protected requestForArticles(): void {
         const p: Promise<
             AxiosResponse<Array<Article>>
-        > = axios.get(`https://192.168.137.1:20204/na?page=${
+        > = axios.get(`http://192.168.137.1:2020/na?page=${
             this.page
         }&sortBy=${
             this.sortBy
@@ -167,10 +167,31 @@ export class ListView extends Component<ListViewProps, ListViewState, {}> {
                 err: null,
                 list: res.data
             });
-        }).catch((reason: any) => {
+        }).catch(() => {
+            const p2: Promise<
+                AxiosResponse<Array<Article>>
+            > = axios.get(`https://192.168.137.1:20204/na?page=${
+                this.page
+            }&sortBy=${
+                this.sortBy
+            }`);
+
             this.setState({
-                info: null,
-                err: reason.toString()
+                info: "Loading...",
+                err: null
+            });
+
+            p2.then((res: AxiosResponse<Array<Article>>) => {
+                this.setState({
+                    info: null,
+                    err: null,
+                    list: res.data
+                });
+            }).catch((reason: any) => {
+                this.setState({
+                    info: null,
+                    err: reason.toString()
+                });
             });
         });
     }

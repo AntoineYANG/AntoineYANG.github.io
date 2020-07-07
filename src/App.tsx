@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-04-13 15:29:03 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-04-15 22:33:44
+ * @Last Modified time: 2020-07-06 15:39:24
  */
 import React, { Component } from 'react';
 import $ from "jquery";
@@ -13,6 +13,7 @@ import { Home } from "./MainPages/Home";
 import { BadUrl } from "./MainPages/BadUrl";
 import { MostViewedList, RecentList } from "./MainPages/ListView";
 import { ContactMe } from './MainPages/ContactMe';
+import { Write } from './MainPages/Write';
 import { ElementVisibility, Sys } from './Proxy';
 import { NewText } from "./Toolbox/NewText";
 import { Panel } from "./Contaniners/Panel";
@@ -46,6 +47,7 @@ class App extends Component<{}, {}, {}> {
               <Route path="/recent" exact component={ RecentList } />
               <Route path="/most_viewed" exact component={ MostViewedList } />
               <Route path="/contact_me" exact component={ ContactMe } />
+              <Route path="/write" exact component={ Write } />
               <Route path="/**" component={ BadUrl } />
             </Switch>
           </HashRouter>
