@@ -2,7 +2,7 @@
  * @Author: Antoine YANG 
  * @Date: 2020-07-06 15:36:16 
  * @Last Modified by: Antoine YANG
- * @Last Modified time: 2020-07-07 19:29:15
+ * @Last Modified time: 2020-07-08 18:32:49
  */
 
 import React, { Component } from "react";
@@ -12,12 +12,12 @@ import { Container } from "../Contaniners/Container";
 
 export class Write extends Component<{}, {}> {
 
-    private textarea: React.RefObject<HTMLDivElement>;
+    private textarea: React.RefObject<HTMLTextAreaElement>;
     private board: React.RefObject<HTMLDivElement>;
 
     public constructor(props: {}) {
         super(props);
-        this.textarea = React.createRef<HTMLDivElement>();
+        this.textarea = React.createRef<HTMLTextAreaElement>();
         this.board = React.createRef<HTMLDivElement>();
     }
 
@@ -36,19 +36,23 @@ export class Write extends Component<{}, {}> {
                             width: "46%",
                             padding: "1%",
                             margin: "6% 1%",
-                            fontSize: "calc(12px + 1vmin)",
+                            fontSize: "calc(9px + 1vmin)",
                             textAlign: "left",
                             minHeight: "4em",
                             overflowX: "scroll",
+                            whiteSpace: "pre",
                             fontFamily: "operator mono, source code pro, MS Mincho, monospace !important"
                         }} />
-                        <div ref={ this.textarea } contentEditable={ true }
+                        {/* <div ref={ this.textarea } contentEditable={ true } */}
+                        <textarea ref={ this.textarea }
+                        // contentEditable={ true }
                         style={{
                             display: "inline-block",
                             width: "46%",
                             padding: "1%",
                             margin: "6% 1%",
-                            fontSize: "calc(12px + 1vmin)",
+                            fontSize: "calc(9px + 1vmin)",
+                            resize: "none",
                             textAlign: "left",
                             minHeight: "4em",
                             overflowX: "scroll",
@@ -57,18 +61,17 @@ export class Write extends Component<{}, {}> {
                             boxShadow: "calc(3px + 0.3vh) calc(2px + 0.2vh) calc(3px + 0.3vh) calc(0.4px + 0.1vh) #1A1B1D40"
                         }}
                         onInput={
-                            (e: React.FormEvent<HTMLDivElement>) => {
-                                const text: string = $(e.target).html()?.toString() || "";
+                            (e: React.FormEvent<HTMLTextAreaElement>) => {
+                                const text: string = $(e.target).val()?.toString() || "";
                                 let html: string = parseMarkdown(text);
                                 $(this.board.current!).html(html);
                                 $("code").each((_: number, e: HTMLElement) => {
-                                    $(e).html(
-                                        $(e).html().split(
-                                            "<div>"
-                                        ).join("").split("<br>").join("").split(
-                                            "</div>"
-                                        ).join("<br>")
-                                    );
+                                    const language: string | undefined = e.classList[1];
+                                    if (language && $(e).html()) {
+                                        $(e).html(
+                                            highlightCode($(e).html(), language)
+                                        );
+                                    }
                                 });
                             }
                         } />
@@ -83,19 +86,23 @@ export class Write extends Component<{}, {}> {
 const parseMarkdown = (text: string): string => {
     // console.log(text);
     
-    let html: string = text.split("&nbsp;").join(" ");
+    let html: string = text.split("&nbsp;").join(" ").split(/</).join("&lt;");
     // .split(
     //     /&lt;/
     // ).join("<").split(/&gt;/).join(">").split(/\\</).join("&lt;").split(/\\>/).join("&gt;");
-
-    html = html.split("<br></div>").join("</div>");
 
     if (!html) {
         return "";
     }
 
     while (html.includes("```")) {
-        const html_r: string = html.replace("```", "<code style='display: block;'>");
+        const html_c: RegExpExecArray = /```.*\n?/.exec(html)!;
+        const hl: Array<string> = html_c[0].replace("```", "").split(/\s/).filter(s => s);
+        const language: string = hl.length ? hl[0] : "plain";
+        const html_r: string = html.replace(
+            html_c[0],
+            `<code class='selectable ${ language }' style='display: block;'>`
+        );
         if (html_r.includes("```")) {
             html = html_r.replace("```", "</code>");
         } else {
@@ -103,37 +110,38 @@ const parseMarkdown = (text: string): string => {
         }
     }
 
-    let lines: Array<string> = [];
+    let lines: Array<string> = html.split("\n");
 
-    while (html.includes("<div>") && html.includes("</div>")) {
-        if (html.startsWith("<div>")) {
-            const end: number = html.indexOf("</div>");
-            lines.push(...html.substring(5, end).split(/<br>/));
-            html = html.substring(end + 6);
-        } else {
-            const start: number = html.indexOf("<div>");
-            lines.push(...html.substring(0, start).split(/<br>/));
-            html = html.substring(start);
-        }
-    }
-
-    lines.push(...html.split(/<br>/));
+    // console.log(lines);
 
     if (!lines) {
         return "";
     }
+
+    let isCode: boolean = false;
 
     let block: "plain" | "ul" | "ol" = "plain";
 
     let quote: number = 0;
     
     for (let i: number = 0; i < lines.length; i++) {
+        if (lines[i].includes("<code class='selectable' ")) {
+            isCode = true;
+        } else if (lines[i].includes("</code>")) {
+            isCode = false;
+            continue;
+        }
+
+        if (isCode) {
+            continue;
+        }
+
         // 单行代码块
         let codeInline: RegExpExecArray | null = /(?<!\\)`[^`]+(?<!\\)`/.exec(lines[i]);
         while (codeInline) {
             lines[i] = lines[i].replace(
                 codeInline[0],
-                `<code>${ codeInline[0].split(/`/)[1] }</code>`
+                `<code class='selectable'>${ codeInline[0].split(/`/)[1] }</code>`
             );
 
             codeInline = /(?<!\\)`[^`]+(?<!\\)`/.exec(lines[i]);
@@ -277,17 +285,37 @@ const parseMarkdown = (text: string): string => {
 
     quote = 0;
 
-    let isCode: boolean = false;
+    isCode = false;
 
     for (let i: number = 0; i < lines.length; i++) {
-        if (lines[i].includes("<code ")) {
+        lines[i] = lines[i].replace("> ", ">&nbsp;").replace(" <", "&nbsp;<");
+
+        if (lines[i].includes("<code class='selectable' ")) {
             isCode = true;
         } else if (lines[i].includes("</code>")) {
             isCode = false;
+            // 重复空格
+            let blanks: RegExpExecArray | null = /  +/g.exec(lines[i]);
+            while (blanks) {
+                const s: string = blanks[0];
+
+                lines[i] = lines[i].replace(s, " " + "&nbsp;".repeat(s.length - 1));
+
+                blanks = /  +/g.exec(lines[i]);
+            }
             continue;
         }
 
         if (isCode) {
+            // 重复空格
+            let blanks: RegExpExecArray | null = /  +/g.exec(lines[i]);
+            while (blanks) {
+                const s: string = blanks[0];
+
+                lines[i] = lines[i].replace(s, " " + "&nbsp;".repeat(s.length - 1));
+
+                blanks = /  +/g.exec(lines[i]);
+            }
             continue;
         }
 
@@ -342,5 +370,64 @@ const parseMarkdown = (text: string): string => {
 
     // console.log(lines);
 
-    return lines.map(s => s.startsWith("<") ? s : `<div>${ s || "<br>" }</div>`).join("");
+    return lines.map(s => `${ s || "" }`).join("\n");
+};
+
+const highlightCode = (text: string, lang: string) => {
+    if (lang === "python") {
+        // 关键字
+        let reservedWords: Array<string> = /\b(as|assert|break|continue|del|elif|else|except|finally|for|from|if|import|pass|raise|return|try|while|with|yield)\b(?!\<)/.exec(text) || [];
+        while (reservedWords.length) {
+            text = text.replace(
+                new RegExp("\\b" + reservedWords[0] + "\\b(?!\\<)"),
+                "<span style='color: #9A79AD;'>" + reservedWords[0] + "</span>"
+            );
+            reservedWords = /\b(as|assert|break|continue|del|elif|else|except|finally|for|from|if|import|pass|raise|return|try|while|with|yield)\b(?!\<)/.exec(text) || [];
+        }
+
+        reservedWords = /\b(False|None|True|and|class|def|global|in|is|lambda|nonlocal|not|or)\b(?!\<)/.exec(text) || [];
+        while (reservedWords.length) {
+            text = text.replace(
+                new RegExp("\\b" + reservedWords[0] + "\\b(?!\\<)"),
+                "<span style='color: #428BC1;'>" + reservedWords[0] + "</span>"
+            );
+            reservedWords = /\b(False|None|and|class|True|def|global|in|is|lambda|nonlocal|not|or)\b(?!\<)/.exec(text) || [];
+        }
+
+        // 数字
+        let numbers: Array<string> = /\b[0-9]+(\.[0-9])?[0-9]*(e[+-]?[0-9]+(\.[0-9])?[0-9])?\b(?!\<)/.exec(text) || [];
+        while (numbers.length) {
+            text = text.replace(
+                new RegExp("\\b" + numbers[0] + "\\b(?!\\<)"),
+                "<span style='color: #709871;'>" + numbers[0] + "</span>"
+            );
+            numbers = /\b[0-9]+(\.[0-9])?[0-9]*(e[+-]?[0-9]+(\.[0-9])?[0-9])?\b(?!\<)/.exec(text) || [];
+        }
+        
+        // // 字符串
+        // let strings: Array<string> = /("((?!((?!\\)")).*)?"|'((?!((?!\\)')).*)?')(?!\<)/.exec(text) || [];
+        // while (strings.length) {
+        //     console.log(strings);
+        //     text = text.replace(
+        //         new RegExp(strings[0] + "(?!\\<)"),
+        //         "<span style='color: #A7552F;'>" + strings[0] + "</span>"
+        //     );
+        //     strings = /(?!style\=)("((?!((?!\\)")).*)?"|'((?!((?!\\)')).*)?')(?!\<)/.exec(text) || [];
+        //     console.log("->", strings);
+        //     break;
+        // }
+
+        // 函数
+        let funcs: Array<string> = /\b[_|a-z|A-Z][_|a-z|A-Z|0-9]*\b\s*\(/.exec(text) || [];
+        while (funcs.length) {
+            const parts: Array<string> = funcs[0].split(/\s|\(/);
+            text = text.replace(
+                new RegExp("\\b" + parts[0] + "\\b(?!\\<)"),
+                "<span style='color: #9F9F1E;'>" + parts[0] + "</span>"
+            );
+            funcs = /\b[_|a-z|A-Z][_|a-z|A-Z|0-9]*\b\s*\(/.exec(text) || [];
+        }
+    }
+
+    return text;
 };
