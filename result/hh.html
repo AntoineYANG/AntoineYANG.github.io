@@ -42,6 +42,14 @@
         return s < 10 ? '0' + s : s;
     }
 
+    const params = window.location.toString().split("?")[1].split("&");
+    const name = decodeURI(params.filter(d => d.startsWith("name="))[0].replace("name=", ""));
+    const sid = params.filter(d => d.startsWith("sid="))[0].replace("sid=", "");
+    setTimeout(() => {
+        document.getElementById("name").innerText = "姓名：" + name;
+        document.getElementById("anchor").href = "https://e.zufe.edu.cn/zcxs/getList?account=" + sid;
+    }, 100);
+
 </script></head>
 
 
@@ -53,7 +61,7 @@
 
 <div class="content-box">
     <div class="top-title">
-        <p style="font-size:1.0rem;">姓名：杨振东</p>
+        <p id="name" style="font-size:1.0rem;">姓名：???</p>
         <p style="font-size:1.0rem;">单位：信息管理与人工智能学院</p>
     </div>
     <div>
@@ -70,8 +78,8 @@
         <div id="vspan" class="time">有效期：****-**-** **:**—**:**</div>
     
     <div style="text-align:center;padding-top: 20px">
-        <a target="_blank" href="https://e.zufe.edu.cn/404">晨午晚检测申报</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a target="_blank" href="https://e.zufe.edu.cn/404">查看申请记录</a>
+        <a target="_blank" href="https://e.zufe.edu.cn/infoplus/form/XSCWJCSQ/start?back=1&x_posted=true">晨午晚检测申报</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a id="anchor" target="_blank" href="#">查看申请记录</a>
     </div>
 </div>
 
