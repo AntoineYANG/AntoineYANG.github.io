@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.bb7add60.css",
-    "main.js": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.9b4f6dbf.js",
+    "main.css": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.a5b067b7.css",
+    "main.js": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.cdf4b3cd.js",
     "static/media/header-background.png": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/header-background.ee53650c.png",
     "static/media/logo.png": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/logo.9b594304.png",
     "index.html": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/index.html",
     "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.1feff74f.bin",
-    "main.bb7add60.css.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.bb7add60.css.map",
-    "main.9b4f6dbf.js.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.9b4f6dbf.js.map"
+    "main.a5b067b7.css.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.a5b067b7.css.map",
+    "main.cdf4b3cd.js.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.cdf4b3cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb7add60.css",
-    "static/js/main.9b4f6dbf.js"
+    "static/css/main.a5b067b7.css",
+    "static/js/main.cdf4b3cd.js"
   ]
 }
