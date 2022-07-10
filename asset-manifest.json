@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.db39c693.css",
-    "main.js": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.371ca339.js",
-    "static/media/header-background.png": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/header-background.ee53650c.png",
-    "static/media/logo.png": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/logo.9b594304.png",
-    "index.html": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/index.html",
-    "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.1feff74f.bin",
-    "main.db39c693.css.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/css/main.db39c693.css.map",
-    "main.371ca339.js.map": "D:/project/@github-KANATA/kyusho-homepage/packages/react-app/static/js/main.371ca339.js.map"
+    "main.css": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.89faea25.css",
+    "main.js": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.93f7c3d7.js",
+    "static/media/logo.png": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/media/logo.b3a67e28.png",
+    "index.html": "D:/project/@kyusho/kyusho-homepage/packages/react-app/index.html",
+    "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.1feff74f.bin",
+    "main.89faea25.css.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.89faea25.css.map",
+    "main.93f7c3d7.js.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.93f7c3d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.db39c693.css",
-    "static/js/main.371ca339.js"
+    "static/css/main.89faea25.css",
+    "static/js/main.93f7c3d7.js"
   ]
 }
