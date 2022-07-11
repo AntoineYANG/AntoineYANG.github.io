@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.89faea25.css",
-    "main.js": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.93f7c3d7.js",
+    "main.css": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.90b5f11e.css",
+    "main.js": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.b88378c0.js",
     "static/media/logo.png": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/media/logo.b3a67e28.png",
     "index.html": "D:/project/@kyusho/kyusho-homepage/packages/react-app/index.html",
     "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.1feff74f.bin",
-    "main.89faea25.css.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.89faea25.css.map",
-    "main.93f7c3d7.js.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.93f7c3d7.js.map"
+    "main.90b5f11e.css.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/css/main.90b5f11e.css.map",
+    "main.b88378c0.js.map": "D:/project/@kyusho/kyusho-homepage/packages/react-app/static/js/main.b88378c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.89faea25.css",
-    "static/js/main.93f7c3d7.js"
+    "static/css/main.90b5f11e.css",
+    "static/js/main.b88378c0.js"
   ]
 }
